@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    
+    <title>p5.play.Mario</title>
+    <!-- link p5.js and its addons like p5.dom.js or p5.sound.js -->
+    <script src="lib/p5.min.js" type="text/javascript"></script>
+    <!-- link p5.play.js -->
+    <script src="lib/p5.play.js" type="text/javascript"></script>
+    <!-- link p5.dom.js -->
+    <script src="lib/p5.dom.js" type="text/javascript"></script>
+
+    <!-- link your javascript sketch -->
+    <script src="scripts/sprites.js" type="text/javascript"></script>
+
+    <script src="main.js" type="text/javascript"></script>
+
+    <script src="characters_environment.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/addons/p5.sound.min.js"></script>
+
+  </head>
+  <body background="data:image/jpeg;base64,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">
+    <center>
+      <div class="btn btn-primary heading">
+        <h3>AI MARIO GAME</h3>
+        <button class="btn btn-success" data-toggle="modal" data-target="#myModal">Instructions</button>
+  
+      </div>
+      <img src="mario.jpg" class="big_image">
+      <br><br>
+      <button class="btn btn-primary" onclick="startGame()" id="start">Play Game</button>
+      <br>
+      <h3 id="status" class="btn btn-warning"></h3>
+      <br>
+      <div id="canvas"></div>
+      <div id="game_cconsole"></div>
+      <h4> Source code:<a href="https://github.com/linuk">Linuk</a> || Game Credit:Mario</h4>
+      <div id="myModal" class="modal fade">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button class="close" data-dismiss="modal">&times;</button>
+              <h4>Instructions</h4>
+            </div>
+            <div class="modal-body">
+              <img src="jump.png" class="img-responsive instruction_image">
+              <img src="right.png" class="img-responsive instruction_image">
+              <img src="left.png" class="img-responsive instruction_image">
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+  
+
+  </body>
+</html>
